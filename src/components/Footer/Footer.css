@@ -1,0 +1,29 @@
+.footer {
+  margin-top: 50px;
+  background: var(--color-grey-black);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  justify-items: center;
+  height: 90vh;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a h2 {
+  color: var(--color-title);
+  border-bottom: 2px solid var(--color-title);
+  text-align: center;
+}
+
+.footer-link {
+  text-align: center;
+}
+
+.footer-link a {
+  color: var(--color-title);
+  margin-right: 30px;
+}

@@ -12,6 +12,7 @@
 .navbar a h1 {
   margin-left: 20px;
   color: var(--color-title);
+  border-bottom: 2px solid ;
 }
 
 .navbar a:hover {
@@ -21,7 +22,7 @@
 .nav-link a {
   margin-right: 30px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
   color: var(--color-not-hover);
   transition: all 0.5s ease;
 }

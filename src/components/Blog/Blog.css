@@ -26,10 +26,35 @@
   box-sizing: border-box;
   display: block;
   outline: none;
-  border: 0;
+  border: 2px solid transparent;
   border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.new-blog input:focus,
+.new-blog textarea:focus,
+.new-blog select:focus {
+  border: 2px solid var(--color-title);
 }
 
 .new-blog input[type="file"] {
   color: var(--color-grey-black);
+}
+
+.new-blog .btn {
+  margin-top: 20px;
+  padding: 9px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--color-green-neon);
+  transition: all 0.3s ease;
+}
+
+.new-blog .btn:hover {
+  transform: translateY(-3px);
+}
+
+.new-blog .btn:focus {
+  transform: translateY(0px);
 }

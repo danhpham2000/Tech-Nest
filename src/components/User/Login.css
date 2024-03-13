@@ -1,0 +1,54 @@
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-form h2 {
+  color: var(--color-title);
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+.login-form label {
+  text-align: left;
+  display: block;
+  font-weight: 600;
+  color: var(--color-grey-black);
+}
+
+.login-form input {
+  width: 100%;
+  text-align: left;
+  padding: 4px;
+  margin: 10px 0;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.login-form input:nth-child(2n) {
+  margin-bottom: 30px;
+}
+
+.login-form input:focus {
+  border: 2px solid var(--color-green-neon);
+}
+
+.login-form .btn {
+  margin-top: 20px;
+  padding: 9px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--color-green-neon);
+  transition: all 0.3s ease;
+}
+
+.login-form .btn:hover {
+  transform: translateY(-3px);
+}
+
+.login-form .btn:focus {
+  transform: translateY(0px);
+}

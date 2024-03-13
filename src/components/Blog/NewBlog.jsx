@@ -4,7 +4,7 @@ const BlogCreate = () => {
   return (
     <div className="new-blog">
       <h2>Write your own blog</h2>
-      <form action="form-blog">
+      <form>
         <label htmlFor="title">Title</label>
         <input type="text" name="title" required />
 
