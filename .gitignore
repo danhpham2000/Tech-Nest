@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 .eslintrc.cjs
-vite.config.json
+vite.config.js
 
 # Editor directories and files
 .vscode/*

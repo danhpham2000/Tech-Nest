@@ -1,0 +1,35 @@
+.new-blog {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.new-blog h2 {
+  font-size: 24px;
+  color: var(--color-title);
+  margin-bottom: 40px;
+}
+
+.new-blog label {
+  text-align: left;
+  display: block;
+  font-weight: 600;
+  color: var(--color-grey-black);
+}
+
+.new-blog input,
+.new-blog textarea,
+.new-blog select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0px;
+  box-sizing: border-box;
+  display: block;
+  outline: none;
+  border: 0;
+  border-radius: 4px;
+}
+
+.new-blog input[type="file"] {
+  color: var(--color-grey-black);
+}
