@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Login.css";
 
 const Login = () => {
@@ -14,6 +16,10 @@ const Login = () => {
         <button type="submit" className="btn">
           Log in
         </button>
+
+        <div className="new-member">
+          Not a TC member? <Link to="/signup">Create account</Link>
+        </div>
       </form>
     </div>
   );

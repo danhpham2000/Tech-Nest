@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    {
+      "id": "5d67",
+      "title": "HTWS",
+      "body": "12321",
+      "author": "Danh"
+    },
+    {
+      "id": "bca6",
+      "title": "HTTYD 3",
+      "body": "Bye Bye Night Fury",
+      "author": "Danh"
+    }
+  ]
+}

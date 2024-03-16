@@ -1,12 +1,11 @@
 .footer {
-  margin-top: 50px;
+  margin-top: 100px;
   background: var(--color-grey-black);
-  padding: 10px;
+  padding: 5px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   justify-items: center;
-  height: 90vh;
 }
 
 .footer a {

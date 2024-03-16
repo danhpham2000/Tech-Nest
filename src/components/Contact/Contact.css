@@ -1,58 +1,50 @@
-.new-blog {
+.contact-form {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
   height: 80vh;
 }
 
-.new-blog h2 {
-  font-size: 24px;
+.contact-form h2 {
   color: var(--color-title);
+  font-size: 24px;
   margin-bottom: 40px;
 }
-
-.new-blog label {
+.contact-form label {
   text-align: left;
   display: block;
   font-weight: 600;
   color: var(--color-grey-black);
 }
 
-.new-blog input,
-.new-blog textarea,
-.new-blog select {
+.contact-form input,
+textarea {
   width: 100%;
+  text-align: left;
   padding: 4px;
-  margin: 10px 0px;
-  display: block;
+  margin: 10px 0;
   outline: none;
   border: 2px solid transparent;
   border-radius: 4px;
   transition: all 0.3s ease;
   height: 30px;
+  font-size: 16px;
 }
 
-.new-blog textarea {
-  height: 300px;
+.contact-form textarea {
   resize: none;
+  height: 100px;
 }
 
-.new-blog select {
-  height: 40px;
-  width: 103%;
+.contact-form input:nth-child(2n) {
+  margin-bottom: 30px;
 }
 
-.new-blog input:focus,
-.new-blog textarea:focus,
-.new-blog select:focus {
-  border: 2px solid var(--color-title);
+.contact-form input:focus {
+  border: 2px solid var(--color-green-neon);
 }
 
-.new-blog input[type="file"] {
-  color: var(--color-grey-black);
-}
-
-.new-blog .btn {
+.contact-form .btn {
   margin-top: 20px;
   padding: 9px;
   border: 0;
@@ -63,10 +55,10 @@
   width: 100%;
 }
 
-.new-blog .btn:hover {
+.contact-form .btn:hover {
   transform: translateY(-3px);
 }
 
-.new-blog .btn:focus {
+.contact-form .btn:focus {
   transform: translateY(0px);
 }

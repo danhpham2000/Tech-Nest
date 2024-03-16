@@ -1,5 +1,10 @@
+import "./About.css"
+
+
 const About = () => {
-    return ( <h1>Coming Soon...</h1> );
+    return ( <div className="about">
+        Coming Soon...
+    </div> );
 }
  
 export default About;

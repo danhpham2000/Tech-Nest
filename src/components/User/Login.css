@@ -2,6 +2,7 @@
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
+  height: 80vh;
 }
 
 .login-form h2 {
@@ -25,6 +26,7 @@
   border: 2px solid transparent;
   border-radius: 4px;
   transition: all 0.3s ease;
+  height: 30px;
 }
 
 .login-form input:nth-child(2n) {
@@ -43,6 +45,7 @@
   cursor: pointer;
   background: var(--color-green-neon);
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .login-form .btn:hover {
@@ -51,4 +54,15 @@
 
 .login-form .btn:focus {
   transform: translateY(0px);
+}
+
+.login-form .new-member {
+  margin-top: 20px;
+}
+
+.new-member a,
+.new-member a:active,
+.new-member a:visited {
+  text-decoration: none;
+  color: var(--color-title);
 }
