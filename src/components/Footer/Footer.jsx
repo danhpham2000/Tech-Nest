@@ -11,7 +11,13 @@ const Footer = () => {
         <Link to="/">Home</Link>
         <Link to="/status">Status</Link>
         <Link to="/about">About</Link>
-        <Link to="/contact">Contact Us</Link>
+        <Link to="/contact">Contact</Link>
+        {/* <Link to="/help">Help</Link>
+        <Link to="/">Support</Link> */}
+      </div>
+
+      <div className="copyright">
+        Tech Corner &copy; 2024. All Right Reserved.
       </div>
     </div>
   );

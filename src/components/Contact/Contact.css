@@ -40,7 +40,8 @@ textarea {
   margin-bottom: 30px;
 }
 
-.contact-form input:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
   border: 2px solid var(--color-green-neon);
 }
 
@@ -62,5 +63,3 @@ textarea {
 .contact-form .btn:focus {
   transform: translateY(0px);
 }
-
-.contact-form 

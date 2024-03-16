@@ -31,3 +31,8 @@
   color: var(--color-title);
   margin-right: 30px;
 }
+
+.copyright {
+  margin-top: 10px;
+  grid-column: span 12;
+}
