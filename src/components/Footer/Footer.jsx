@@ -8,8 +8,10 @@ const Footer = () => {
       </Link>
 
       <div className="footer-link">
+        <Link to="/">Home</Link>
+        <Link to="/status">Status</Link>
         <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">Contact Us</Link>
       </div>
     </div>
   );

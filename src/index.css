@@ -15,3 +15,7 @@ body {
   margin: 0;
   letter-spacing: 0.5px;
 }
+
+.not-found {
+  height: 80vh;
+}

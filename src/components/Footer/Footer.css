@@ -1,25 +1,30 @@
 .footer {
   margin-top: 100px;
   background: var(--color-grey-black);
-  padding: 5px;
+  padding: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   justify-items: center;
+  border-radius: 0 0 0 10px;
 }
 
 .footer a {
   text-decoration: none;
+  grid-column: span 12;
 }
 
 .footer a h2 {
   color: var(--color-title);
   border-bottom: 2px solid var(--color-title);
   text-align: center;
+  grid-column: span 12;
 }
 
 .footer-link {
   text-align: center;
+  grid-column: span 12;
+  
 }
 
 .footer-link a {
