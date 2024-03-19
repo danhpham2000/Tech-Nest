@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
 
-const BlogList = ({ blogs, title }) => {
+const BlogList = ({ blogs }) => {
   return (
     <div className="blog-list">
-      <h2>{title}</h2>
       {blogs.map((blog) => (
         <div className="blog-preview" key={blog.id}>
-          <img src="" alt="httyd" />
-          <Link>
-            <h3>{blog.title}</h3>
-            <p>Written By {blog.author}</p>
-          </Link>
+          <h2>{blog.title}</h2>
+          <p>Author: {blog.author}</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+            aliquid quod quo asperiores minus quis autem tempore illo, optio um.
+          </p>
+          <h3>{blog.date}</h3>
         </div>
       ))}
     </div>
