@@ -9,12 +9,16 @@ const Home = () => {
       title: "HTTYD 2",
       body: "12321",
       author: "Danh",
+      date: "Feb 12, 2024",
+      image: "../../assets/httyd.jpeg",
     },
     {
       id: "bca6",
       title: "HTTYD 3",
       body: "Bye Bye Night Fury",
       author: "Danh",
+      date: "Feb 12, 2024",
+      image: "../../assets/httyd.jpeg",
     },
   ]);
   return (

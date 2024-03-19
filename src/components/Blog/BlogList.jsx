@@ -7,11 +7,11 @@ const BlogList = ({ blogs, title }) => {
       <h2>{title}</h2>
       {blogs.map((blog) => (
         <div className="blog-preview" key={blog.id}>
+          <img src="" alt="httyd" />
           <Link>
             <h3>{blog.title}</h3>
             <p>Written By {blog.author}</p>
           </Link>
-          
         </div>
       ))}
     </div>
