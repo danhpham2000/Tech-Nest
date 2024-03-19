@@ -4,6 +4,10 @@
   padding: 10px;
 }
 
+.home h2 {
+  color: var(--color-title);
+}
+
 .grid-blog {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -29,10 +33,6 @@
 }
 
 .link-type a:hover {
-  background: var(--color-green-neon);
-}
-
-.link-type a:visited .link-type a:active {
   background: var(--color-green-neon);
 }
 
