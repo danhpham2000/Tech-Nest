@@ -5,7 +5,10 @@ module.exports.getBlogs = (req, res) => {
   });
 };
 
-module.exports.getBlog = (req, res) => {};
+module.exports.getBlog = (req, res) => {
+  const blogId = req.params.blogId;
+  console.log("Hello from" + blogId);
+};
 
 module.exports.postBlog = (req, res) => {};
 
