@@ -1,29 +1,31 @@
-import axios from "axios";
 import "./Blog.css";
 import { useState } from "react";
 
 const BlogCreate = () => {
-  const [blog, setBlog] = useState({
-    title: "",
-    image: "",
-    category: "",
-    content: "",
-  });
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [category, setCategory] = useState("");
+  const [content, setContent] = useState("");
+  const [error, setError] = useState(null);
 
-  const handleInput = (event) => {
-    setBlog({ ...blog, [event.target.name]: [event.target.event] });
-  };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const blog = { title, image, category, content };
+
     try {
       const res = await fetch("http://localhost:3000/new-blog", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify(blog),
       });
+      const json = await res.json();
       if (!res.ok) {
-        console.log("Error occur");
+        setError(json.error);
+      }
+      if (res.ok) {
+        console.log("New blog added");
       }
     } catch (err) {
       console.log(err);
@@ -35,13 +37,31 @@ const BlogCreate = () => {
       <h2>Write your own blog</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
-        <input type="text" name="title" onChange={handleInput} required />
+        <input
+          type="text"
+          name="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
 
         <label htmlFor="image">Image</label>
-        <input type="file" id="file" onChange={handleInput} required />
+        <input
+          type="file"
+          id="file"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+          required
+        />
 
         <label htmlFor="category">Category</label>
-        <input type="text" name="category" onChange={handleInput} required />
+        <input
+          type="text"
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        />
 
         <label htmlFor="content">Content</label>
         <textarea
@@ -49,7 +69,8 @@ const BlogCreate = () => {
           id="content"
           cols="70"
           rows="15"
-          onChange={handleInput}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
           required
         ></textarea>
 

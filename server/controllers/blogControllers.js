@@ -20,9 +20,7 @@ module.exports.getBlog = async (req, res) => {
 };
 
 module.exports.postBlog = async (req, res) => {
-  const title = req.body.title;
-  const category = req.body.category;
-  const content = req.body.content;
+  const { title, image, category, content } = req.body;
 
   const blog = new Blog({
     title: title,
