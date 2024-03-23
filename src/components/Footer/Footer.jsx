@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <Link to="/">
-        <h2>Tech Corner</h2>
+        <h2>Tech Nest</h2>
       </Link>
 
       <div className="footer-link">
@@ -17,7 +17,7 @@ const Footer = () => {
       </div>
 
       <div className="copyright">
-        Tech Corner &copy; 2024. All Right Reserved.
+        Tech Nest &copy; 2024. All Right Reserved.
       </div>
     </div>
   );

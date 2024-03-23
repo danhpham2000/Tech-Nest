@@ -14,6 +14,7 @@ body {
   color: var(--color-not-hover);
   margin: 0;
   letter-spacing: 0.5px;
+  
 }
 
 .not-found {

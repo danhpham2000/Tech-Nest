@@ -1,23 +1,47 @@
+import axios from "axios";
 import "./Blog.css";
+import { useState } from "react";
 
 const BlogCreate = () => {
+  const [blog, setBlog] = useState({
+    title: "",
+    image: "",
+    category: "",
+    content: "",
+  });
+
+  const handleInput = (event) => {
+    setBlog({ ...blog, [event.target.name]: [event.target.event] });
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const res = await fetch("http://localhost:3000/new-blog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res.ok) {
+        console.log("Error occur");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="new-blog">
       <h2>Write your own blog</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
-        <input type="text" name="title" required />
+        <input type="text" name="title" onChange={handleInput} required />
 
         <label htmlFor="image">Image</label>
-        <input type="file" id="file" required />
+        <input type="file" id="file" onChange={handleInput} required />
 
         <label htmlFor="category">Category</label>
-        <select name="category" id="category" required>
-          <option value="AI">AI</option>
-          <option value="Programming">Programming</option>
-          <option value="DSA">DSA</option>
-          <option value="Web Development">Web Development</option>
-        </select>
+        <input type="text" name="category" onChange={handleInput} required />
 
         <label htmlFor="content">Content</label>
         <textarea
@@ -25,6 +49,7 @@ const BlogCreate = () => {
           id="content"
           cols="70"
           rows="15"
+          onChange={handleInput}
           required
         ></textarea>
 

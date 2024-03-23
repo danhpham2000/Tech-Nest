@@ -11,14 +11,14 @@ router.get("/signup");
 router.post("/signup");
 
 // Login
-router.get("/login");
 router.post("/login");
 
 // Blog Detail
 router.get("/blogs/:blogId");
 
 // New blog
-router.get("/new-blog");
-router.post("/new-blog");
+router.post("/new-blog", blogControllers.postBlog);
+
+// Update blog
 
 module.exports = router;

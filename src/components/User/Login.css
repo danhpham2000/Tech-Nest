@@ -35,7 +35,7 @@
 }
 
 .login-form input:focus {
-  border: 2px solid var(--color-green-neon);
+  border: 2px solid var(--color-title);
 }
 
 .login-form .btn {

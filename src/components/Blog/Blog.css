@@ -71,3 +71,7 @@
 .new-blog .btn:focus {
   transform: translateY(0px);
 }
+
+.blog-link {
+  text-decoration: none;
+}
