@@ -21,8 +21,9 @@ const BlogCreate = () => {
         body: JSON.stringify(blog),
       });
       const json = await res.json();
+      console.log(json);
       if (!res.ok) {
-        setError(json.error);
+        setError(error);
       }
       if (res.ok) {
         console.log("New blog added");
@@ -35,7 +36,7 @@ const BlogCreate = () => {
   return (
     <div className="new-blog">
       <h2>Write your own blog</h2>
-      <form onSubmit={handleSubmit}>
+      <form action="/" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
           type="text"

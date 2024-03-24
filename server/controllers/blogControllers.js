@@ -4,7 +4,7 @@ const Blog = require("../models/blog");
 
 module.exports.getBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find({});
     res.status(200).json({
       message: "Posts fetched",
       blogs: blogs,
@@ -24,7 +24,7 @@ module.exports.postBlog = async (req, res) => {
 
   const blog = new Blog({
     title: title,
-    image: "Dummy image",
+    image: image,
     category: category,
     content: content,
   });

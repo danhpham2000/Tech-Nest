@@ -17,6 +17,12 @@ body {
   
 }
 
+.App {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 10px;
+}
+
 .not-found {
   height: 80vh;
 }

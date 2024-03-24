@@ -75,3 +75,20 @@
 .blog-link {
   text-decoration: none;
 }
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.blog-list .blog-preview {
+  padding: 20px;
+  margin-left: 30px;
+  grid-column: span 1;
+  color: var(--color-grey-black);
+  background: white;
+  border-radius: 5px;
+  width: 250px;
+  max-height: 250px;
+}

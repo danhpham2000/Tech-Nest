@@ -1,21 +1,35 @@
+import useFetch from "../../useFetch";
 import BlogList from "../Blog/BlogList";
+
 import "./Home.css";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const { data, error } = useFetch("http://localhost:3000/");
   return (
     <div className="home">
-      <h2>Latest Blogs</h2>
-      <div className="grid-blog">
-        <div className="link-type">
+      <div className="link-type">
+        <p>Categories</p>
+        <li>
           <Link to="#testTech">Technology</Link>
-          <Link to="#testAI">AI</Link>
-          <Link to="#testWeb">Web Development</Link>
-          <Link to="#testDSA">DSA</Link>
-          <Link to="#testTips">Tips and Tricks</Link>
-        </div>
-        {/* {isPending && <div>Loading...</div>} */}
-        {/* <BlogList blogs={blogs} /> */}
+        </li>
+        <li>
+          <Link to="#testTech">AI</Link>
+        </li>
+        <li>
+          <Link to="#testTech">Web Development</Link>
+        </li>
+        <li>
+          <Link to="#testTech">DSA</Link>
+        </li>
+        <li>
+          <Link to="#testTech">Tips and Tricks</Link>
+        </li>
+      </div>
+
+      <div className="article">
+        {error && <div>{error}</div>}
+        {data && <BlogList blogs={data.blogs} />}
       </div>
     </div>
   );
