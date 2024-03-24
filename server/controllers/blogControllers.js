@@ -15,7 +15,13 @@ module.exports.getBlogs = async (req, res) => {
 };
 
 module.exports.getBlog = async (req, res) => {
-  const blogId = req.params.blogId;
+  const blogId = req.params.id;
+
+  const blog = await Blog.findById(blogId);
+  if (!blog) {
+    throw new Error("Blog is not found!");
+  }
+
   console.log("Hello from" + blogId);
 };
 

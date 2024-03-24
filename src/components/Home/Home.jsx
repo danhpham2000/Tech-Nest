@@ -23,7 +23,7 @@ const Home = () => {
           <Link to="#testTech">DSA</Link>
         </li>
         <li>
-          <Link to="#testTech">Tips and Tricks</Link>
+          <Link to="#testTech">Tips and </Link>
         </li>
       </div>
 

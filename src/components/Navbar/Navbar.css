@@ -2,7 +2,6 @@
   grid-column: span 3;
   display: flex;
   align-items: center;
-  padding: 10px;
   border-bottom: 1px solid black;
   justify-content: space-between;
 }
@@ -35,6 +34,3 @@
   background: var(--color-green-neon);
   opacity: 1;
 }
-
-
-
