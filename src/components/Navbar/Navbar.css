@@ -8,7 +8,7 @@
 
 .logo {
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .logo h1 {
@@ -17,7 +17,6 @@
   background: var(--color-primary);
   padding: 5px 10px;
   border-radius: 5px;
-  /* box-shadow: 0 5px 0 rgba(0, 0, 0, 1); */
 }
 
 .nav-link {
@@ -27,7 +26,7 @@
 .nav-link a:not(:last-child) {
   margin-right: 35px;
   opacity: 0.5;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .nav-link a:not(:last-child):hover {

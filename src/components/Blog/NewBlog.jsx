@@ -69,15 +69,16 @@ const BlogCreate = () => {
           name="content"
           id="content"
           cols="70"
-          rows="15"
+          rows="20"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           required
         ></textarea>
-
-        <button type="submit" className="btn">
-          Publish
-        </button>
+        <div className="btn-container">
+          <button type="submit" className="btn">
+            Publish
+          </button>
+        </div>
       </form>
     </div>
   );

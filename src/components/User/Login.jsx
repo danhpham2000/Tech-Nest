@@ -5,7 +5,7 @@ import "./Login.css";
 const Login = () => {
   return (
     <div className="login-form">
-      <h2>Current Member</h2>
+      <h2>Current TN Member</h2>
       <form action="/">
         <label htmlFor="email">Email</label>
         <input type="text" name="email" required />
@@ -16,11 +16,10 @@ const Login = () => {
         <button type="submit" className="btn">
           Log in
         </button>
-
-        <div className="new-member">
-          Not a TC member? <Link to="/signup">Create account</Link>
-        </div>
       </form>
+      <div className="new-member">
+        Not a TN member? <Link to="/signup">Create account</Link>
+      </div>
     </div>
   );
 };

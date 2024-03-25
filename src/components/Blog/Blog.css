@@ -1,16 +1,19 @@
 .new-blog {
-  width: 100vh;
-  min-height: 80vh;
+  margin-bottom: 50px;
+  grid-column: span 3;
+  width: 30%;
+  justify-self: center;
 }
 
 .new-blog h2 {
   font-size: 24px;
-  color: var(--color-title);
+  color: var(--color-grey-black);
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .new-blog label {
-  text-align: center;
+  text-align: left;
   display: block;
   font-weight: 600;
   color: var(--color-grey-black);
@@ -21,14 +24,15 @@
 .new-blog select {
   width: 100%;
   padding: 4px;
-  margin: 10px 0px;
+  margin: 20px auto;
   display: block;
   outline: none;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   height: 30px;
   font-size: 16px;
+  font-family: "Poppins";
 }
 
 .new-blog textarea {
@@ -38,13 +42,13 @@
 
 .new-blog select {
   height: 40px;
-  width: 103%;
+  width: 100%;
 }
 
 .new-blog input:focus,
 .new-blog textarea:focus,
 .new-blog select:focus {
-  border: 2px solid var(--color-title);
+  border: 3px solid var(--color-dark-primary);
 }
 
 .new-blog input[type="file"] {
@@ -57,9 +61,15 @@
   border: 0;
   border-radius: 4px;
   cursor: pointer;
-  background: var(--color-green-neon);
+  background: var(--color-primary);
   transition: all 0.3s ease;
   width: 100%;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.btn-container {
+  text-align: center;
 }
 
 .new-blog .btn:hover {

@@ -1,0 +1,39 @@
+.footer {
+  grid-column: span 3;
+  padding: 30px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer h2 {
+  color: black;
+  background: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  margin-top: 20px;
+}
+
+.footer-link a {
+  margin-right: 30px;
+  color: black;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.footer-link a:hover {
+  opacity: 1;
+}
+
+.copyright {
+  margin-top: 25px;
+  color: black;
+}

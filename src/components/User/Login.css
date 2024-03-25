@@ -1,14 +1,15 @@
 .login-form {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  min-height: 80vh;
+  margin-bottom: 300px;
+  grid-column: span 3;
+  justify-self: center;
+  width: 30%;
 }
 
 .login-form h2 {
-  color: var(--color-title);
+  color: var(--color-grey-black);
   font-size: 24px;
   margin-bottom: 40px;
+  text-align: center;
 }
 .login-form label {
   text-align: left;
@@ -23,7 +24,7 @@
   padding: 4px;
   margin: 10px 0;
   outline: none;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border-radius: 4px;
   transition: all 0.3s ease;
   height: 30px;
@@ -35,7 +36,7 @@
 }
 
 .login-form input:focus {
-  border: 2px solid var(--color-title);
+  border: 3px solid var(--color-dark-primary);
 }
 
 .login-form .btn {
@@ -44,9 +45,11 @@
   border: 0;
   border-radius: 4px;
   cursor: pointer;
-  background: var(--color-green-neon);
+  background: var(--color-primary);
   transition: all 0.3s ease;
   width: 100%;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .login-form .btn:hover {
@@ -57,17 +60,16 @@
   transform: translateY(0px);
 }
 
-.login-form .new-member {
-  margin-top: 20px;
-}
-
 .new-member a,
 .new-member a:active,
 .new-member a:visited {
   text-decoration: none;
-  color: var(--color-title);
+  color: #07b4b4;
 }
 
 .new-member {
+  margin-top: 30px;
+
   color: var(--color-grey-black);
+  text-align: center;
 }

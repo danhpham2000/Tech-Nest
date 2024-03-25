@@ -12,8 +12,8 @@ const Footer = () => {
         <Link to="/status">Status</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
-        {/* <Link to="/help">Help</Link>
-        <Link to="/">Support</Link> */}
+        <Link to="/help">Help</Link>
+        <Link to="/support">Support</Link>
       </div>
 
       <div className="copyright">

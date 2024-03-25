@@ -9,13 +9,14 @@ const BlogList = ({ blogs }) => {
         <div className="blog-preview" key={blog._id}>
           <Link to={`/blogs/${blog._id}`}>
             <h2>{blog.title}</h2>
-            <p>Category: {blog.category}</p>
-            <p>{blog.content}</p>
+            <p id="content">{blog.content}</p>
           </Link>
-          <p>
+
+          <p id="date">
             <strong>Published on: </strong>
             {blog.createdAt.split("T")[0]}
           </p>
+          <p id="category">{blog.category}</p>
         </div>
       ))}
     </div>
