@@ -1,10 +1,8 @@
-import { Link,  } from "react-router-dom";
-import "./Blog.css";
+import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 
 const BlogList = ({ blogs }) => {
-
   return (
     <div className="blog-list">
       {blogs.map((blog) => (

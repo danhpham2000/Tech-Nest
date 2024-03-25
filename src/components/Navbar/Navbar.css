@@ -1,0 +1,46 @@
+.navbar {
+  grid-column: span 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo h1 {
+  margin-left: 35px;
+  color: black;
+  background: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  /* box-shadow: 0 5px 0 rgba(0, 0, 0, 1); */
+}
+
+.nav-link {
+  margin-right: 35px;
+}
+
+.nav-link a:not(:last-child) {
+  margin-right: 35px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.nav-link a:not(:last-child):hover {
+  opacity: 1;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: black;
+}
+
+.signup {
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--color-primary);
+}
