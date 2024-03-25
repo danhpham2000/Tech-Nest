@@ -15,23 +15,21 @@ const App = () => {
     <Router>
       <div className="App">
         <Navbar />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/new-blog" element={<NewBlog />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/new-blog" element={<NewBlog />} />
 
-            {/* Content, Sign Up and Login */}
-            <Route path="/blogs/:id" element={<BlogDetails />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+          {/* Content, Sign Up and Login */}
+          <Route path="/blogs/:id" element={<BlogDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
-            {/* Contact, About and Not Found */}
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
+          {/* Contact, About and Not Found */}
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
 
         <Footer />
       </div>

@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="link-type">
-        <p>Categories</p>
+        <p id="cat-title">Categories</p>
         <li>
           <Link to="#testTech">Technology</Link>
         </li>
@@ -23,7 +23,7 @@ const Home = () => {
           <Link to="#testTech">DSA</Link>
         </li>
         <li>
-          <Link to="#testTech">Tips and </Link>
+          <Link to="#testTech">Tips and Tricks </Link>
         </li>
       </div>
 
