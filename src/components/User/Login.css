@@ -1,8 +1,8 @@
 .login-form {
-  margin-bottom: 300px;
   grid-column: span 3;
   justify-self: center;
   width: 30%;
+  margin-bottom: 50px;
 }
 
 .login-form h2 {

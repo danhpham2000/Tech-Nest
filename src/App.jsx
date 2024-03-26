@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
+import EditBlog from "./components/Blog/EditBlog";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/new-blog" element={<NewBlog />} />
+          <Route path="/edit-blog" element={<EditBlog />} />
 
           {/* Content, Sign Up and Login */}
           <Route path="/blogs" element={<Home />} />

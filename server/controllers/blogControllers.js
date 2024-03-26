@@ -58,6 +58,8 @@ module.exports.postBlog = async (req, res) => {
   });
 };
 
-module.exports.updateBlog = async (req, res) => {};
+module.exports.updateBlog = async (req, res) => {
+  
+};
 
 module.exports.deleteBlog = async (req, res) => {};

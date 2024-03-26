@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import useFetch from "../../useFetch";
 
 const BlogDetails = () => {
@@ -15,6 +15,15 @@ const BlogDetails = () => {
           <div className="blog-details">
             <h2>{data.blog.title}</h2>
             <p>{data.blog.content}</p>
+
+            <div className="blog-setting">
+              <Link to="/edit-blog" className="edit">
+                Edit
+              </Link>
+              <Link to="/delete-blog" className="delete">
+                Delete
+              </Link>
+            </div>
           </div>
           <div className="blog-meta">
             <ul>
