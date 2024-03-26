@@ -83,3 +83,32 @@
 .blog-link {
   text-decoration: none;
 }
+
+.blog-details {
+  grid-column: span 2;
+  padding: 30px;
+  line-height: 40px;
+  border-right: 1px solid #ddd;
+  margin-bottom: 350px;
+}
+
+.blog-details > * {
+  color: var(--color-grey-black);
+}
+
+.blog-details h2 {
+  text-align: center;
+}
+
+.blog-meta {
+  padding: 10px;
+  color: var(--color-grey-black);
+}
+
+.blog-meta ul {
+  list-style: none;
+}
+
+.blog-meta li {
+  font-weight: 700;
+}

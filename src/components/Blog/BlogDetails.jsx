@@ -19,7 +19,7 @@ const BlogDetails = () => {
           <div className="blog-meta">
             <ul>
               <li>Published on: </li>
-              <p>{data.blog.createdAt}</p>
+              <p>{data.blog.createdAt.split("T")[0]}</p>
               <li>Category: </li>
               <p>{data.blog.category}</p>
               <li>Written by: </li>
