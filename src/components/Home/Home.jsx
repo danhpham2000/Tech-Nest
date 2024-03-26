@@ -5,7 +5,7 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const { data, error } = useFetch("http://localhost:3000/");
+  const { data, error } = useFetch("http://localhost:3000/blogs");
   return (
     <div className="home">
       <div className="link-type">

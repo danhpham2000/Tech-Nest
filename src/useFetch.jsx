@@ -10,11 +10,15 @@ const useFetch = (url) => {
         if (!res.ok) {
           throw Error("could not fetch the data!");
         }
+        console.log("Res ok!");
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        if (!data) {
+          console.log("There is no data");
+        }
         setData(data);
+        setError(null);
       })
       .catch((err) => {
         setError(err.message);

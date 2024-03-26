@@ -2,9 +2,21 @@
 
 const Blog = require("../models/blog");
 
+module.exports.getHome = async (req, res) => {
+  try {
+    const blogs = await Blog.find();
+    res.status(200).json({
+      message: "Posts fetched",
+      blogs: blogs,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports.getBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find();
     res.status(200).json({
       message: "Posts fetched",
       blogs: blogs,
@@ -16,13 +28,18 @@ module.exports.getBlogs = async (req, res) => {
 
 module.exports.getBlog = async (req, res) => {
   const blogId = req.params.id;
-
-  const blog = await Blog.findById(blogId);
-  if (!blog) {
-    throw new Error("Blog is not found!");
+  try {
+    const blog = await Blog.findById(blogId);
+    if (!blog) {
+      throw new Error("Blog is not found!");
+    }
+    res.status(200).json({
+      message: "Blog fetched!",
+      blog: blog,
+    });
+  } catch (err) {
+    console.log(err);
   }
-
-  console.log("Hello from" + blogId);
 };
 
 module.exports.postBlog = async (req, res) => {

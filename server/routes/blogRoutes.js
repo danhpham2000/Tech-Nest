@@ -4,7 +4,9 @@ const blogControllers = require("../controllers/blogControllers");
 const router = Router();
 
 // Home
-router.get("/", blogControllers.getBlogs);
+router.get("/", blogControllers.getHome);
+
+router.get("/blogs", blogControllers.getBlogs);
 
 // Sign up
 router.get("/signup");
@@ -14,7 +16,7 @@ router.post("/signup");
 router.post("/login");
 
 // Blog Detail
-router.get("/blogs/:blogId");
+router.get("/blogs/:id", blogControllers.getBlog);
 
 // New blog
 router.post("/new-blog", blogControllers.postBlog);
