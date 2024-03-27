@@ -24,9 +24,9 @@
   padding: 4px;
   margin: 10px 0;
   outline: none;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   height: 30px;
   font-size: 16px;
 }
@@ -36,7 +36,7 @@
 }
 
 .login-form input:focus {
-  border: 3px solid var(--color-dark-primary);
+  border: 2px solid var(--color-dark-primary);
 }
 
 .login-form .btn {

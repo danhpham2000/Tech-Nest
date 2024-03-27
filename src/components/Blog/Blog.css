@@ -27,7 +27,7 @@
   margin: 20px auto;
   display: block;
   outline: none;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   border-radius: 4px;
   transition: all 0.5s ease;
   height: 30px;
@@ -48,7 +48,7 @@
 .new-blog input:focus,
 .new-blog textarea:focus,
 .new-blog select:focus {
-  border: 3px solid var(--color-dark-primary);
+  border: 2px solid var(--color-dark-primary);
 }
 
 .new-blog input[type="file"] {

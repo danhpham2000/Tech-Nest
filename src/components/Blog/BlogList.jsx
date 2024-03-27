@@ -10,7 +10,7 @@ const BlogList = ({ blogs }) => {
           <Link to={`/blogs/${blog._id}`}>
             <h2>{blog.title}</h2>
             <p id="category">{blog.category}</p>
-            <p id="content">{blog.content}</p>
+            <p id="content">{blog.content.substr(0, 97)}...</p>
           </Link>
           <p id="date">
             <strong>Published on: </strong>
