@@ -3,7 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div className="footer">
-      <Link to="/blogs">
+      <Link to="/">
         <h2>Tech Nest</h2>
       </Link>
 

@@ -18,10 +18,10 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/new-blog" element={<NewBlog />} />
-          <Route path="/edit-blog" element={<EditBlog />} />
+          <Route path="/blogs/:id/edit-blog" element={<EditBlog />} />
 
           {/* Content, Sign Up and Login */}
-          <Route path="/blogs" element={<Home />} />
+          <Route path="/" element={<Home />} />
 
           <Route path="/blogs/:id" element={<BlogDetails />} />
           <Route path="/login" element={<Login />} />

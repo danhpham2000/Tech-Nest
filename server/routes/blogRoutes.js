@@ -4,23 +4,19 @@ const blogControllers = require("../controllers/blogControllers");
 const router = Router();
 
 // Home
-router.get("/", blogControllers.getHome);
+router.get("/", blogControllers.getBlogs);
 
-router.get("/blogs", blogControllers.getBlogs);
-
-// Sign up
-router.get("/signup");
-router.post("/signup");
-
-// Login
-router.post("/login");
-
-// Blog Detail
+// Blog Detail (GET)
 router.get("/blogs/:id", blogControllers.getBlog);
 
-// New blog
-router.post("/new-blog", blogControllers.postBlog);
+// Create new blog (POST)
+router.post("/blogs", blogControllers.postBlog);
 
-// Update blog
+// Update blog (PUT)
+router.get("/blogs/:id/edit-blog", blogControllers.getBlog);
+router.put("/blogs/:id/edit-blog", blogControllers.updateBlog);
+
+// Delete the blog (DELETE)
+router.delete("/blogs/:id", blogControllers.deleteBlog);
 
 module.exports = router;

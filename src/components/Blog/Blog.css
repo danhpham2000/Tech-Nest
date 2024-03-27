@@ -137,6 +137,6 @@
   color: #e74c3c;
 }
 
-.setting:active {
-  background: #ddd;
+.blog-setting > *:hover {
+  background: #e5e2e2;
 }

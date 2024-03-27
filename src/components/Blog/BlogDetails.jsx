@@ -17,7 +17,7 @@ const BlogDetails = () => {
             <p>{data.blog.content}</p>
 
             <div className="blog-setting">
-              <Link to="/edit-blog" className="edit">
+              <Link to={`/blogs/${data.blog._id}/edit-blog`} className="edit">
                 Edit
               </Link>
               <Link to="/delete-blog" className="delete">

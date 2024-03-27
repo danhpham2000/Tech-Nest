@@ -14,7 +14,7 @@ const BlogList = ({ blogs }) => {
           </Link>
           <p id="date">
             <strong>Published on: </strong>
-            {blog.createdAt.split("T")[0]}
+            {blog.createdAt.split("T")[0].split("-").reverse().join("-")}
           </p>
         </div>
       ))}
