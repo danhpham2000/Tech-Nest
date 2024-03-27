@@ -21,8 +21,10 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
-    date: {
-      type: Date,
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
   },
   { timestamps: true }
