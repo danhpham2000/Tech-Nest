@@ -84,6 +84,10 @@ module.exports.deleteBlog = async (req, res) => {
     if (!blog) {
       throw new Error("Blog is not found!");
     }
+
+    res.status(202).json({
+      message: "Blog deleted!",
+    });
   } catch (err) {
     res.status(404).json({
       message: err.message,

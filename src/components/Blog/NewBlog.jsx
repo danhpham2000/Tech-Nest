@@ -1,19 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import "./Blog.css";
 import { useState } from "react";
 
-const BlogCreate = () => {
+const NewBlog = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("");
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const blog = { title, image, category, content };
 
     try {
-      const res = await fetch("http://localhost:3000/new-blog", {
+      const res = await fetch("http://localhost:3000/blogs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,9 +28,7 @@ const BlogCreate = () => {
       if (!res.ok) {
         setError(error);
       }
-      if (res.ok) {
-        console.log("New blog added");
-      }
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +37,7 @@ const BlogCreate = () => {
   return (
     <div className="new-blog">
       <h2>Write your own blog</h2>
-      <form action="/" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
           type="text"
@@ -84,4 +85,4 @@ const BlogCreate = () => {
   );
 };
 
-export default BlogCreate;
+export default NewBlog;

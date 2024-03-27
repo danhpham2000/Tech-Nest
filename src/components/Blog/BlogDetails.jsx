@@ -1,10 +1,27 @@
 /* eslint-disable react/prop-types */
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import useFetch from "../../useFetch";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const { data, error } = useFetch("http://localhost:3000/blogs/" + id);
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/blogs/${id}/delete-blog`, {
+        method: "DELETE",
+      });
+      if (!res.ok) {
+        throw new Error("Something is wrong!");
+      }
+      const json = await res.json();
+      console.log(json);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -20,9 +37,9 @@ const BlogDetails = () => {
               <Link to={`/blogs/${data.blog._id}/edit-blog`} className="edit">
                 Edit
               </Link>
-              <Link to="/delete-blog" className="delete">
+              <button onClick={handleDelete} className="delete">
                 Delete
-              </Link>
+              </button>
             </div>
           </div>
           <div className="blog-meta">

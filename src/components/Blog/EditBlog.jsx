@@ -43,11 +43,12 @@ const EditBlog = () => {
         },
         body: JSON.stringify(blog),
       });
-      const json = await res.json();
-      console.log(json);
       if (!res.ok) {
         throw new Error("Something is wrong!");
       }
+      const json = await res.json();
+      console.log(json);
+
       if (res.ok) {
         console.log("Blog is updated!");
       }
