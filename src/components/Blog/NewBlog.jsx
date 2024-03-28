@@ -26,11 +26,11 @@ const NewBlog = () => {
       if (!res.ok) {
         setError(error);
       }
-      
-      const json = await res.json();
-      console.log(json);
-
-      navigate("/");
+      if (res.ok) {
+        const json = await res.json();
+        console.log(json);
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }

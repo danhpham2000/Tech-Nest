@@ -22,9 +22,9 @@ userSchema.post("save", function (doc, next) {
   next();
 });
 
-userSchema.pre("save", async function (doc, next) {
-  const salt = bcrypt.genSalt();
-  this.password = bcrypt.hash(this.password, salt);
+userSchema.pre("save", async function (next) {
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password, salt);
   console.log("Password is being hashed!");
   next();
 });

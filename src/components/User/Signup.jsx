@@ -24,10 +24,13 @@ const Signup = () => {
       if (!res.ok) {
         setError(error);
       }
-      const json = await res.json();
-      console.log(json);
-      navigate("/");
+      if (res.ok) {
+        const json = await res.json();
+        console.log(json);
+        navigate("/");
+      }
     } catch (err) {
+      setError(err);
       console.log(err);
     }
   };
@@ -36,9 +39,10 @@ const Signup = () => {
     <div className="login-form">
       <h2>Become A TN Member</h2>
       <form onSubmit={handleSignup}>
+        {error && <div>{error}</div>}
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -48,7 +52,7 @@ const Signup = () => {
         <input
           type="password"
           name="password"
-          onChange={(e) => setPassword(e.target.password)}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
 

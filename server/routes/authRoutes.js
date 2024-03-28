@@ -8,6 +8,6 @@ const router = Router();
 router.post("/signup", authControllers.postSignUp);
 
 // Login: POST
-router.post("/login", authControllers.postSignUp);
+router.post("/login", authControllers.postLogin);
 
 module.exports = router;

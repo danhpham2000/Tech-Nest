@@ -5,10 +5,10 @@ import "./Blog.css";
 const EditBlog = () => {
   const { id } = useParams();
 
-  const [title, setTitle] = useState();
-  const [image, setImage] = useState();
-  const [category, setCategory] = useState();
-  const [content, setContent] = useState();
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [category, setCategory] = useState("");
+  const [content, setContent] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {

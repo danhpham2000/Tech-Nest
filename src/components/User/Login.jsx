@@ -8,8 +8,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate();
-
   const handleLogin = async (event) => {
     event.preventDefault();
     const user = { email, password };
@@ -24,10 +22,10 @@ const Login = () => {
       });
       if (!res.ok) {
         setError(error);
+        console.log(user);
       }
       const json = await res.json();
       console.log(json);
-      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -38,7 +36,7 @@ const Login = () => {
       <form onSubmit={handleLogin}>
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
           required
