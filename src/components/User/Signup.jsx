@@ -21,25 +21,28 @@ const Signup = () => {
         },
         body: JSON.stringify(user),
       });
+      const json = await res.json();
+
       if (!res.ok) {
-        setError(error);
+        console.log(json);
+        setError(json.message);
       }
       if (res.ok) {
-        const json = await res.json();
         console.log(json);
         navigate("/");
       }
     } catch (err) {
-      setError(err);
-      console.log(err);
+      console.log("Catch:", err);
     }
   };
 
   return (
     <div className="login-form">
       <h2>Become A TN Member</h2>
+
       <form onSubmit={handleSignup}>
         {error && <div>{error}</div>}
+
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -63,7 +66,6 @@ const Signup = () => {
           onChange={(e) => setConfirmedPassword(e.target.value)}
           required
         />
-
         <button type="submit" className="btn">
           Sign Up
         </button>

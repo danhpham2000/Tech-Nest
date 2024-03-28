@@ -7,6 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -20,12 +21,16 @@ const Login = () => {
         },
         body: JSON.stringify(user),
       });
-      if (!res.ok) {
-        setError(error);
-        console.log(user);
-      }
       const json = await res.json();
-      console.log(json);
+
+      if (!res.ok) {
+        console.log(json);
+        setError(json.message);
+      }
+      if (res.ok) {
+        console.log(json);
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }
@@ -34,6 +39,8 @@ const Login = () => {
     <div className="login-form">
       <h2>Current TN Member</h2>
       <form onSubmit={handleLogin}>
+        {error && <div>{error}</div>}
+
         <label htmlFor="email">Email</label>
         <input
           type="email"
