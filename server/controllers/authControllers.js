@@ -13,7 +13,7 @@ module.exports.postSignUp = async (req, res) => {
 
   try {
     if (password !== confirmedPassword) {
-      throw new Error("Password does not match");
+      throw Error("Password does not match");
     }
     const user = User.create({
       email,
@@ -48,6 +48,19 @@ module.exports.postLogin = async (req, res) => {
     console.log(err.message);
     res.status(400).json({
       message: err.message,
+    });
+  }
+};
+
+module.exports.getLogout = async (req, res) => {
+  try {
+    res.cookie("jwt", "", { maxAge: 1 });
+    res.status(200).json({
+      message: "You have logout!",
+    });
+  } catch (err) {
+    res.status(400).json({
+      message: "You cannot log out!",
     });
   }
 };

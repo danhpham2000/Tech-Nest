@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const blogRoutes = require("./routes/blogRoutes");
+const authRoutes = require("./routes/authRoutes");
 const { mongoose } = require("mongoose");
 const app = express();
 
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use(blogRoutes);
+app.use(authRoutes);
 
 mongoose
   .connect(

@@ -23,11 +23,13 @@ const NewBlog = () => {
         },
         body: JSON.stringify(blog),
       });
-      const json = await res.json();
-      console.log(json);
       if (!res.ok) {
         setError(error);
       }
+      
+      const json = await res.json();
+      console.log(json);
+
       navigate("/");
     } catch (err) {
       console.log(err);
