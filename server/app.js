@@ -4,10 +4,12 @@ const bodyParser = require("body-parser");
 const blogRoutes = require("./routes/blogRoutes");
 const authRoutes = require("./routes/authRoutes");
 const { mongoose } = require("mongoose");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -22,8 +24,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(blogRoutes);
 app.use(authRoutes);
+app.use(blogRoutes);
 
 mongoose
   .connect(

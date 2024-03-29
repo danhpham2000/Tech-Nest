@@ -30,6 +30,7 @@ module.exports.postSignUp = async (req, res) => {
     res.status(201).json({
       message: "User created!",
       user: user._id,
+      token: token,
     });
   } catch (err) {
     console.log("Your error: ", err.message);
@@ -49,6 +50,7 @@ module.exports.postLogin = async (req, res) => {
     res.status(200).json({
       message: "User login!",
       user: user._id,
+      token: token,
     });
   } catch (err) {
     res.status(400).json({ message: err.message });

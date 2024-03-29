@@ -5,6 +5,10 @@ const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+  name: {
+    type: String,
+    default: "User" + this._id,
+  },
   email: {
     type: String,
     required: true,
@@ -15,6 +19,19 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  blogs: [
+    {
+      blogId: {
+        type: Schema.Types.ObjectId,
+        ref: "Blog",
+        required: true,
+      },
+      quantity: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
 });
 
 userSchema.post("save", function (doc, next) {
