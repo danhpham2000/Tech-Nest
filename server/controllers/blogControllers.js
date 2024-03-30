@@ -39,6 +39,7 @@ module.exports.postBlog = async (req, res) => {
       image: image,
       category: category,
       content: content,
+      userId: req.user._id,
     });
     await blog.save();
     res.status(201).json({

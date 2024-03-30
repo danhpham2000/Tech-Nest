@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
@@ -11,7 +12,7 @@ const Signup = () => {
 
   const handleSignup = async (event) => {
     event.preventDefault();
-    const user = { email, password, confirmedPassword };
+    const user = { name, email, password, confirmedPassword };
 
     try {
       const res = await fetch("http://localhost:3000/signup", {
@@ -42,6 +43,13 @@ const Signup = () => {
 
       <form onSubmit={handleSignup}>
         {error && <div>{error}</div>}
+
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <label htmlFor="email">Email</label>
         <input

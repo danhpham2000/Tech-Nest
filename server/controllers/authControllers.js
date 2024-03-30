@@ -1,15 +1,17 @@
 /* eslint-disable no-undef */
+require("dotenv").config();
+
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 
 const maxAge = 3 * 24 * 60 * 60;
 
 const createToken = (id) => {
-  return jwt.sign({ id }, "ree security", { expiresIn: maxAge });
+  return jwt.sign({ id }, process.env.SECRET_JWT, { expiresIn: maxAge });
 };
 
 module.exports.postSignUp = async (req, res) => {
-  const { email, password, confirmedPassword } = req.body;
+  const { name, email, password, confirmedPassword } = req.body;
 
   try {
     if (password !== confirmedPassword) {
@@ -21,6 +23,7 @@ module.exports.postSignUp = async (req, res) => {
       throw Error("Email already in use!");
     }
     const user = User.create({
+      name,
       email,
       password,
     });
