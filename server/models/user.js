@@ -19,19 +19,21 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  blogs: [
-    {
-      blogId: {
-        type: Schema.Types.ObjectId,
-        ref: "Blog",
-        required: true,
+  storage: {
+    blogs: [
+      {
+        blogId: {
+          type: Schema.Types.ObjectId,
+          ref: "Blog",
+          required: true,
+        },
       },
-      quantity: {
-        type: Number,
-        required: true,
-      },
+    ],
+    quantity: {
+      type: Number,
+      required: true,
     },
-  ],
+  },
 });
 
 userSchema.post("save", function (doc, next) {
@@ -47,6 +49,9 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.statics.login = async function (email, password) {
+  if (!email || !password) {
+    throw new Error("All field must be filled!");
+  }
   const user = await this.findOne({ email });
   if (user) {
     const auth = await bcrypt.compare(password, user.password);
@@ -56,6 +61,24 @@ userSchema.statics.login = async function (email, password) {
     throw new Error("Incorrect password!");
   }
   throw new Error("Incorrect email!");
+};
+
+userSchema.methods.addBlog = function (blog) {
+  const updatedStorageBlogs = [...this.storage.blogs];
+  let quantity = 1;
+  if (this.blogs.quantity === 0) {
+    updatedStorageBlogs.push(blog._id);
+    this.quantity = quantity;
+  } else {
+    updatedStorageBlogs.push(blog._id);
+    this.quantity += 1;
+  }
+
+  const updatedStorage = {
+    blogs: updatedStorageBlogs,
+  };
+  this.storage = updatedStorage;
+  return this.save();
 };
 
 module.exports = mongoose.model("User", userSchema);

@@ -1,13 +1,11 @@
 /* eslint-disable no-undef */
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 
-const maxAge = 3 * 24 * 60 * 60;
-
-const createToken = (id) => {
-  return jwt.sign({ id }, process.env.SECRET_JWT, { expiresIn: maxAge });
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.SECRET_JWT, { expiresIn: "1d" });
 };
 
 module.exports.postSignUp = async (req, res) => {
@@ -29,7 +27,6 @@ module.exports.postSignUp = async (req, res) => {
     });
 
     const token = createToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({
       message: "User created!",
       user: user._id,
@@ -49,7 +46,7 @@ module.exports.postLogin = async (req, res) => {
   try {
     const user = await User.login(email, password);
     const token = createToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.cookie("")
     res.status(200).json({
       message: "User login!",
       user: user._id,
@@ -62,7 +59,6 @@ module.exports.postLogin = async (req, res) => {
 
 module.exports.getLogout = async (req, res) => {
   try {
-    res.cookie("jwt", "", { maxAge: 1 });
     res.status(200).json({
       message: "You have logout!",
     });

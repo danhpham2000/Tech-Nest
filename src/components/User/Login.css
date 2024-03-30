@@ -73,3 +73,9 @@
   color: var(--color-grey-black);
   text-align: center;
 }
+
+.error {
+  text-align: center;
+  color: red;
+  margin-bottom: 10px;
+}

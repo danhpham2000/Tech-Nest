@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 
 const Blog = require("../models/blog");
+const User = require("../models/user");
 
 module.exports.getBlogs = async (req, res) => {
   try {
@@ -39,10 +40,11 @@ module.exports.postBlog = async (req, res) => {
       image: image,
       category: category,
       content: content,
-      userId: req.user._id,
+      userId: req.userId,
     });
     await blog.save();
-    res.status(201).json({
+
+    await res.status(201).json({
       message: "Blog created successfully!",
       blog: blog,
     });

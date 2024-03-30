@@ -19,6 +19,7 @@ const Login = () => {
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify(user),
       });
       const json = await res.json();
@@ -29,6 +30,7 @@ const Login = () => {
       }
       if (res.ok) {
         console.log(json);
+        console.log(json.token);
         navigate("/");
       }
     } catch (err) {
@@ -39,14 +41,13 @@ const Login = () => {
     <div className="login-form">
       <h2>Current TN Member</h2>
       <form onSubmit={handleLogin}>
-        {error && <div>{error}</div>}
+        {error && <div className="error">{error}</div>}
 
         <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
-          required
         />
 
         <label htmlFor="password">Password</label>
@@ -54,7 +55,6 @@ const Login = () => {
           type="password"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
-          required
         />
 
         <button type="submit" className="btn">
