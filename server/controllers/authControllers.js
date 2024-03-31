@@ -27,6 +27,7 @@ module.exports.postSignUp = async (req, res) => {
     });
 
     const token = createToken(user._id);
+    res.cookie("jwt", token, { httpOnly: true, expiresIn: "1h" });
     res.status(201).json({
       message: "User created!",
       user: user._id,
@@ -46,7 +47,7 @@ module.exports.postLogin = async (req, res) => {
   try {
     const user = await User.login(email, password);
     const token = createToken(user._id);
-    res.cookie("")
+    res.cookie("jwt", token, { httpOnly: true, expiresIn: "1h" });
     res.status(200).json({
       message: "User login!",
       user: user._id,

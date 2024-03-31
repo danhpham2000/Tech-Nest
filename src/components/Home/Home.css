@@ -8,6 +8,7 @@
   padding: 30px;
   border-right: 1px solid #ddd;
   color: black;
+  width: 300px;
 }
 
 .link-type #cat-title {
@@ -37,7 +38,7 @@
 .blog-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 10px;
   margin-left: 20px;
   width: 1000px;
   margin-top: 20px;
@@ -47,7 +48,7 @@
   padding: 20px;
   padding-bottom: 30px;
   background: white;
-  width: 500px;
+  width: 400px;
   border-radius: 5px;
   margin-bottom: 50px;
 }

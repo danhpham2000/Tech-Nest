@@ -34,19 +34,23 @@ module.exports.getBlog = async (req, res) => {
 module.exports.postBlog = async (req, res) => {
   try {
     const { title, image, category, content } = req.body;
+    const user = await User.findOne({
+      email: "danhpham1104@gmail.com",
+    }).populate("_id");
 
     const blog = new Blog({
       title: title,
       image: image,
       category: category,
       content: content,
-      userId: req.userId,
+      userId: user._id,
     });
     await blog.save();
 
     await res.status(201).json({
       message: "Blog created successfully!",
       blog: blog,
+      name: user.email,
     });
   } catch (err) {
     res.status(400).json({

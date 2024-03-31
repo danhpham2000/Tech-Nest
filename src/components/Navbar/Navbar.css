@@ -43,3 +43,17 @@
   border-radius: 5px;
   background: var(--color-primary);
 }
+
+.logout {
+  border: none;
+  background: inherit;
+  font-size: 16px;
+  font-family: "Poppins";
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.logout:hover {
+  opacity: 1;
+}

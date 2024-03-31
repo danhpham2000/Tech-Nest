@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import useSignIn from "react-auth-kit/hooks/useSignIn";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
@@ -7,6 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const signIn = useSignIn();
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
@@ -30,8 +31,16 @@ const Login = () => {
       }
       if (res.ok) {
         console.log(json);
-        console.log(json.token);
-        navigate("/");
+        if (
+          signIn({
+            auth: {
+              token: json.token,
+              type: "Bearer",
+            },
+            userState: json.user,
+          })
+        )
+          navigate("/");
       }
     } catch (err) {
       console.log(err);
