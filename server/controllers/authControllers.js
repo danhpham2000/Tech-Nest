@@ -30,7 +30,7 @@ module.exports.postSignUp = async (req, res) => {
     res.cookie("jwt", token, { httpOnly: true, expiresIn: "1h" });
     res.status(201).json({
       message: "User created!",
-      user: user._id,
+      name: name,
       token: token,
     });
   } catch (err) {
@@ -50,6 +50,7 @@ module.exports.postLogin = async (req, res) => {
     res.cookie("jwt", token, { httpOnly: true, expiresIn: "1h" });
     res.status(200).json({
       message: "User login!",
+      name: user.name,
       user: user._id,
       token: token,
     });
