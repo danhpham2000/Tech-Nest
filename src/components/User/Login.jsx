@@ -1,50 +1,17 @@
 import { useState } from "react";
-import useSignIn from "react-auth-kit/hooks/useSignIn";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
+import { useLogin } from "../../hooks/useLogin";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const signIn = useSignIn();
-  const navigate = useNavigate();
+  const { login, error } = useLogin();
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const user = { email, password };
 
-    try {
-      const res = await fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(user),
-      });
-      const json = await res.json();
-
-      if (!res.ok) {
-        console.log(json);
-        setError(json.message);
-      }
-      if (res.ok) {
-        console.log(json);
-        if (
-          signIn({
-            auth: {
-              token: json.token,
-              type: "Bearer",
-            },
-            userState: json.user,
-          })
-        )
-          navigate("/");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    await login(email, password)
   };
   return (
     <div className="login-form">

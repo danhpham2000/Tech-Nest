@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSignUp } from "../../hooks/useSignUp";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -7,34 +8,12 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
 
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const { signup, error } = useSignUp();
 
   const handleSignup = async (event) => {
     event.preventDefault();
-    const user = { name, email, password, confirmedPassword };
 
-    try {
-      const res = await fetch("http://localhost:3000/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
-      const json = await res.json();
-
-      if (!res.ok) {
-        console.log(json);
-        setError(json.message);
-      }
-      if (res.ok) {
-        console.log(json);
-        navigate("/");
-      }
-    } catch (err) {
-      console.log("Catch:", err);
-    }
+    await signup(name, email, password, confirmedPassword);
   };
 
   return (
@@ -42,7 +21,7 @@ const Signup = () => {
       <h2>Become A TN Member</h2>
 
       <form onSubmit={handleSignup}>
-        {error && <div>{error}</div>}
+        {error && <div className="error">{error}</div>}
 
         <label htmlFor="name">Name</label>
         <input
