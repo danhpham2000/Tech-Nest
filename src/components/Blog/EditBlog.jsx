@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Blog.css";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const EditBlog = () => {
   const { id } = useParams();
+  const { user } = useAuthContext();
 
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
@@ -12,24 +14,30 @@ const EditBlog = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/blogs/" + id)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Could not fetch data");
-        }
-        console.log("Res ok!");
-        return res.json();
+    if (user) {
+      fetch("http://localhost:3000/blogs/" + id, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       })
-      .then((data) => {
-        setTitle(data.blog.title);
-        setImage(data.blog.image);
-        setCategory(data.blog.category);
-        setContent(data.blog.content);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Could not fetch data");
+          }
+          console.log("Res ok!");
+          return res.json();
+        })
+        .then((data) => {
+          setTitle(data.blog.title);
+          setImage(data.blog.image);
+          setCategory(data.blog.category);
+          setContent(data.blog.content);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [user]);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -40,6 +48,7 @@ const EditBlog = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
         body: JSON.stringify(blog),
       });

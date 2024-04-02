@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Blog.css";
 import { useState } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const NewBlog = () => {
   const [title, setTitle] = useState("");
@@ -8,6 +9,7 @@ const NewBlog = () => {
   const [category, setCategory] = useState("");
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
+  const { user } = useAuthContext();
 
   const navigate = useNavigate();
 
@@ -20,6 +22,7 @@ const NewBlog = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
         body: JSON.stringify(blog),
       });

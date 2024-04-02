@@ -1,19 +1,27 @@
 /* eslint-disable react/prop-types */
 import { useParams, Link, useNavigate } from "react-router-dom";
 import useFetch from "../../useFetch";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useState } from "react";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const { data, error } = useFetch("http://localhost:3000/blogs/" + id);
+  const { user } = useAuthContext();
+  const [isAuthorized, setIsAuthorized] = useState(user ? true : false);
+
+  const { data, error } = useFetch("http://localhost:3000/blogs/" + id, {});
   const navigate = useNavigate();
 
   const handleDelete = async () => {
     try {
       const res = await fetch(`http://localhost:3000/blogs/${id}/delete-blog`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       });
       if (!res.ok) {
-        throw new Error("Something is wrong!");
+        throw new Error("Unauthorized");
       }
       const json = await res.json();
       console.log(json);
@@ -33,14 +41,16 @@ const BlogDetails = () => {
             <h2>{data.blog.title}</h2>
             <p>{data.blog.content}</p>
 
-            <div className="blog-setting">
-              <Link to={`/blogs/${data.blog._id}/edit-blog`} className="edit">
-                Edit
-              </Link>
-              <button onClick={handleDelete} className="delete">
-                Delete
-              </button>
-            </div>
+            {isAuthorized && (
+              <div className="blog-setting">
+                <Link to={`/blogs/${data.blog._id}/edit-blog`} className="edit">
+                  Edit
+                </Link>
+                <button onClick={handleDelete} className="delete">
+                  Delete
+                </button>
+              </div>
+            )}
           </div>
           <div className="blog-meta">
             <ul>
