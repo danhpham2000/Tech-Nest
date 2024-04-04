@@ -18,7 +18,7 @@ module.exports.getBlogs = async (req, res) => {
 module.exports.getBlog = async (req, res) => {
   try {
     const blogId = req.params.id;
-    const blog = await Blog.findById(blogId);
+    const blog = await Blog.findById(blogId)
     if (!blog) {
       throw new Error("Blog is not found!");
     }
@@ -40,7 +40,7 @@ module.exports.postBlog = async (req, res) => {
       image: image,
       category: category,
       content: content,
-      userId: req.user._id,
+      author: req.user._id,
     });
     await blog.save();
 
@@ -48,7 +48,7 @@ module.exports.postBlog = async (req, res) => {
       message: "Blog created successfully!",
       blog: blog,
       name: req.user.name,
-      userId: req.user._id,
+      author: req.user._id,
     });
   } catch (err) {
     res.status(400).json({

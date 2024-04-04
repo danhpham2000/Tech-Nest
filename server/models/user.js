@@ -22,11 +22,9 @@ const userSchema = new Schema({
   storage: {
     blogs: [
       {
-        blogId: {
-          type: Schema.Types.ObjectId,
-          ref: "Blog",
-          required: true,
-        },
+        type: Schema.Types.ObjectId,
+        ref: "Blog",
+        required: true,
       },
     ],
     quantity: {

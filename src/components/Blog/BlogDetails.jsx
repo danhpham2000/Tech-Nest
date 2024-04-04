@@ -7,7 +7,6 @@ import { useState } from "react";
 const BlogDetails = () => {
   const { id } = useParams();
   const { user } = useAuthContext();
-  const [isAuthorized, setIsAuthorized] = useState(user ? true : false);
 
   const { data, error } = useFetch("http://localhost:3000/blogs/" + id, {});
   const navigate = useNavigate();
@@ -41,7 +40,7 @@ const BlogDetails = () => {
             <h2>{data.blog.title}</h2>
             <p>{data.blog.content}</p>
 
-            {isAuthorized && (
+            {user.user && (
               <div className="blog-setting">
                 <Link to={`/blogs/${data.blog._id}/edit-blog`} className="edit">
                   Edit
@@ -59,7 +58,7 @@ const BlogDetails = () => {
               <li>Category: </li>
               <p>{data.blog.category}</p>
               <li>Written by: </li>
-              <p>Danh Pham</p>
+              <p>{data.blog.userId}</p>
             </ul>
           </div>
         </>
