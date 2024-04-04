@@ -52,11 +52,13 @@ const EditBlog = () => {
         },
         body: JSON.stringify(blog),
       });
-      if (!res.ok) {
-        throw new Error("Something is wrong!");
-      }
+
       const json = await res.json();
       console.log(json);
+
+      if (!res.ok) {
+        console.log(json.err);
+      }
 
       if (res.ok) {
         console.log("Blog is updated!");

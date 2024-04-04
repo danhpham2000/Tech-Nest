@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import "./Navbar.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
@@ -6,8 +6,10 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 const Navbar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const navigate = useNavigate("/");
   const handleLogout = () => {
     logout();
+    navigate("/");
   };
   return (
     <div className="navbar">

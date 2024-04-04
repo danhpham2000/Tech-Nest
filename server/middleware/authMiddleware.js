@@ -3,7 +3,6 @@ require("dotenv").config({ path: "../.env" });
 
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const Blog = require("../models/blog");
 
 const requireAuth = async (req, res, next) => {
   // verification

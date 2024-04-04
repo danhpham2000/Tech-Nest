@@ -48,6 +48,7 @@ module.exports.postBlog = async (req, res) => {
       message: "Blog created successfully!",
       blog: blog,
       name: req.user.name,
+      userId: req.user._id,
     });
   } catch (err) {
     res.status(400).json({
@@ -58,6 +59,12 @@ module.exports.postBlog = async (req, res) => {
 
 module.exports.updateBlog = async (req, res) => {
   try {
+    const userId = req.user._id;
+    const isAuth = Blog.find({ userId });
+    if (!isAuth) {
+      throw new Error("You do not authorized to update this blog!");
+    }
+
     const { title, image, category, content } = req.body;
     const blogId = req.params.id;
     const blog = await Blog.findByIdAndUpdate(blogId, {
