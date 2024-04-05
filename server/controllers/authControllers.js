@@ -31,7 +31,6 @@ module.exports.postSignUp = async (req, res) => {
     res.status(201).json({
       message: "User created!",
       name: name,
-      userId: req.user._id,
       token: token,
     });
   } catch (err) {

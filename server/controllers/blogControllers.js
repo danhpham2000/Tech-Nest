@@ -18,13 +18,17 @@ module.exports.getBlogs = async (req, res) => {
 module.exports.getBlog = async (req, res) => {
   try {
     const blogId = req.params.id;
-    const blog = await Blog.findById(blogId)
+    const blog = await Blog.findById(blogId);
     if (!blog) {
       throw new Error("Blog is not found!");
     }
+    const author = blog.author;
+    const name = await User.findOne({ _id: author }).select("name");
     res.status(200).json({
       message: "Blog fetched!",
       blog: blog,
+      author: blog.author,
+      name: name,
     });
   } catch (err) {
     console.log(err);
@@ -48,7 +52,7 @@ module.exports.postBlog = async (req, res) => {
       message: "Blog created successfully!",
       blog: blog,
       name: req.user.name,
-      author: req.user._id,
+      userId: req.user._id,
     });
   } catch (err) {
     res.status(400).json({
