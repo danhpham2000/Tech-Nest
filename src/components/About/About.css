@@ -3,4 +3,5 @@
   grid-column: span 2;
   font-size: 20px;
   padding: 20px;
+  color: var(--color-grey-black);
 }

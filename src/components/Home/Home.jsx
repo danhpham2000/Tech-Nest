@@ -8,6 +8,7 @@ const Home = () => {
   const { data, error } = useFetch("http://localhost:3000/");
   return (
     <div className="home">
+      
       <div className="link-type">
         <p id="cat-title">Categories</p>
         <li>

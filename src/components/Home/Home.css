@@ -8,7 +8,7 @@
   padding: 30px;
   border-right: 1px solid #ddd;
   color: black;
-  width: 300px;
+  width: 200px;
 }
 
 .link-type #cat-title {
@@ -50,6 +50,7 @@
   width: 300px;
   border-radius: 5px;
   margin-bottom: 50px;
+  justify-items: center;
 }
 
 .blog-preview a {
@@ -69,4 +70,10 @@
   background: var(--color-primary);
   display: inline;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 1400px) {
+  .blog-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
