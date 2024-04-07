@@ -20,7 +20,7 @@ module.exports.postSignUp = async (req, res) => {
     if (exist) {
       throw Error("Email already in use!");
     }
-    const user = User.create({
+    const user = await User.create({
       name,
       email,
       password,
@@ -31,6 +31,7 @@ module.exports.postSignUp = async (req, res) => {
     res.status(201).json({
       message: "User created!",
       name: name,
+      user: user._id,
       token: token,
     });
   } catch (err) {

@@ -6,13 +6,11 @@ const bodyParser = require("body-parser");
 const blogRoutes = require("./routes/blogRoutes");
 const authRoutes = require("./routes/authRoutes");
 const { mongoose } = require("mongoose");
-const cookieParser = require("cookie-parser");
 const app = express();
 
 const MONGO_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.3kxqhkx.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority&appName=Cluster0`;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser());
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
