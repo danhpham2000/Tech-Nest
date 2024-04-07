@@ -18,7 +18,7 @@ const NewBlog = () => {
     const blog = { title, image, category, content };
 
     try {
-      const res = await fetch("http://localhost:3000/blogs", {
+      const res = await fetch("https://tech-nest-backend.onrender.com/blogs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

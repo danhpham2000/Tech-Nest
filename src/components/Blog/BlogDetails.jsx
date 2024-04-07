@@ -2,23 +2,27 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import useFetch from "../../useFetch";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { useEffect, useState } from "react";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const { user } = useAuthContext();
 
-  const { data, error } = useFetch("http://localhost:3000/blogs/" + id);
+  const { data, error } = useFetch(
+    "https://tech-nest-backend.onrender.com/blogs/" + id
+  );
   const navigate = useNavigate();
 
   const handleDelete = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/blogs/${id}/delete-blog`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const res = await fetch(
+        `https://tech-nest-backend.onrender.com/blogs/${id}/delete-blog`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       if (!res.ok) {
         throw new Error("Unauthorized");
       }

@@ -15,7 +15,7 @@ const EditBlog = () => {
 
   useEffect(() => {
     if (user) {
-      fetch("http://localhost:3000/blogs/" + id, {
+      fetch("https://tech-nest-backend.onrender.com/blogs/" + id, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

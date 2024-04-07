@@ -5,10 +5,9 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const { data, error } = useFetch("http://localhost:3000/");
+  const { data, error } = useFetch("https://tech-nest-backend.onrender.com/");
   return (
     <div className="home">
-      
       <div className="link-type">
         <p id="cat-title">Categories</p>
         <li>
